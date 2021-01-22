@@ -60,7 +60,6 @@ class ImageProcessor {
                 pixelMap[key]?.add(pixel)
                 pixelList.add(pixel)
 
-
                 //println("[${x}, ${y}] rgb(${red}, ${green}, ${blue})")
                 //println("COUNT: ${colorCountMap[key]}")
 
@@ -68,26 +67,25 @@ class ImageProcessor {
         }
         println("MOST COMMON COLOR: rgb(${mostCommonColor.red}, ${mostCommonColor.green}, ${mostCommonColor.blue}): $highestColorCount")
 
-        val remasteredImage = BufferedImage(image.width, image.height, BufferedImage.TYPE_INT_ARGB)
-
-        println("Rebuilding original image...")
         /* Rebuild the image identical to the original image */
+        println("Rebuilding original image...")
+        val remasteredImage = BufferedImage(image.width, image.height, BufferedImage.TYPE_INT_ARGB)
         for (i in 0 until pixelList.size) {
             val color = Color(pixelList[i].rgb.red, pixelList[i].rgb.green, pixelList[i].rgb.blue).rgb
             remasteredImage.setRGB(pixelList[i].x, pixelList[i].y, color)
         }
 
-        println("Overwriting the most common color...")
         /* Overwrite the most common color pixels with red */
+        println("Overwriting the most common color...")
         val pixelMapKey = "rgb(${mostCommonColor.red}, ${mostCommonColor.green}, ${mostCommonColor.blue})"
         for (i in 0 until pixelMap[pixelMapKey]!!.size) {
             val color = Color(252, 3, 3).rgb
             remasteredImage.setRGB(pixelMap[pixelMapKey]!![i].x, pixelMap[pixelMapKey]!![i].y, color)
         }
 
+        /* Save remastered image */
         val remasteredImagePath = "${imagePath.substring(0, imagePath.length - 4)}remix.png"
         println("Saving remastered image: $remasteredImagePath")
-        /* Save remastered image */
         val remasteredImageFile = File(remasteredImagePath)
         ImageIO.write(remasteredImage, "png", remasteredImageFile)
 
