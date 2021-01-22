@@ -19,6 +19,13 @@ class ImageProcessor {
         var highestColorCount = 0
         var mostCommonColor = RGB(0, 0, 0)
 
+        println("IMAGE INFO:")
+        println("Path: ${file.absolutePath}")
+        println("File size: ${file.length() / 1024}kb")
+        println("Image size: ${image.width} x ${image.height}\n")
+
+        println("Scanning image...")
+
         /* Read all pixel rgb values */
         for (x in 0 until image.width) {
             for (y in 0 until image.height) {
@@ -32,7 +39,7 @@ class ImageProcessor {
 
                 /* Store counts of each color in a map */
                 val value = 0
-                if (colorCountMap.contains(key)) {
+                if (colorCountMap[key] != null) {
                     val value = colorCountMap[key]
                     colorCountMap[key] = AtomicInteger(value!!).incrementAndGet()
                 } else {
@@ -54,8 +61,8 @@ class ImageProcessor {
                 pixelList.add(pixel)
 
 
-                println("[${x}, ${y}] rgb(${red}, ${green}, ${blue})")
-                println("COUNT: ${colorCountMap[key]}")
+                //println("[${x}, ${y}] rgb(${red}, ${green}, ${blue})")
+                //println("COUNT: ${colorCountMap[key]}")
 
             }
         }
@@ -63,12 +70,14 @@ class ImageProcessor {
 
         val remasteredImage = BufferedImage(image.width, image.height, BufferedImage.TYPE_INT_ARGB)
 
+        println("Rebuilding original image...")
         /* Rebuild the image identical to the original image */
         for (i in 0 until pixelList.size) {
             val color = Color(pixelList[i].rgb.red, pixelList[i].rgb.green, pixelList[i].rgb.blue).rgb
             remasteredImage.setRGB(pixelList[i].x, pixelList[i].y, color)
         }
 
+        println("Overwriting the most common color...")
         /* Overwrite the most common color pixels with red */
         val pixelMapKey = "rgb(${mostCommonColor.red}, ${mostCommonColor.green}, ${mostCommonColor.blue})"
         for (i in 0 until pixelMap[pixelMapKey]!!.size) {
@@ -76,14 +85,14 @@ class ImageProcessor {
             remasteredImage.setRGB(pixelMap[pixelMapKey]!![i].x, pixelMap[pixelMapKey]!![i].y, color)
         }
 
+        val remasteredImagePath = "${imagePath.substring(0, imagePath.length - 4)}remix.png"
+        println("Saving remastered image: $remasteredImagePath")
         /* Save remastered image */
-        val remasteredImageFile = File("./images/canvasimageremix.png")
+        val remasteredImageFile = File(remasteredImagePath)
         ImageIO.write(remasteredImage, "png", remasteredImageFile)
 
+        println("COMPLETE!")
 
-        println("IMAGE INFO:")
-        println(file.absolutePath)
-        println(file.length() / 1024)
     } catch (e: Exception) {
         println(e.message)
     }

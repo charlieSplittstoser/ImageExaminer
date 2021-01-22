@@ -6,7 +6,9 @@ class ImageExaminer {
         @JvmStatic fun main(args: Array<String>) {
             val imageProcessor = ImageProcessor()
 
-            imageProcessor.processImage("./images/canvasimage.jpg")
+            val IMAGE_PATH = "./images/canvasimage.jpg"
+
+            imageProcessor.processImage(IMAGE_PATH)
         }
     }
 
