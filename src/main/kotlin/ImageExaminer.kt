@@ -1,14 +1,16 @@
 package main.kotlin
 
+import main.kotlin.model.ProcessType
+
 class ImageExaminer {
 
     companion object {
         @JvmStatic fun main(args: Array<String>) {
             val imageProcessor = ImageProcessor()
 
-            val IMAGE_PATH = "./images/canvasimage.jpg"
+            val IMAGE_PATH = "./images/Night_Time.jpg"
 
-            imageProcessor.processImage(IMAGE_PATH)
+            imageProcessor.processImage(IMAGE_PATH, ProcessType.RANDOMIZE_COLORS)
         }
     }
 
