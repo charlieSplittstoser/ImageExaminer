@@ -10,7 +10,7 @@ class ImageExaminer {
 
             val IMAGE_PATH = "./images/Night_Time.jpg"
 
-            imageProcessor.processImage(IMAGE_PATH, ProcessType.RANDOMIZE_COLORS)
+            imageProcessor.processImage(IMAGE_PATH, ProcessType.SHIFT, shiftAmount = 40)
         }
     }
 

@@ -11,7 +11,7 @@ import java.awt.image.BufferedImage
 
 class ImageProcessor {
 
-    fun processImage(imagePath: String, processType: ProcessType) = try {
+    fun processImage(imagePath: String, processType: ProcessType, shiftAmount: Int = 0) = try {
         val file = File(imagePath)
         val image = ImageIO.read(file)
         val colorCountMap = HashMap<String, Int>()
@@ -69,7 +69,7 @@ class ImageProcessor {
         println("MOST COMMON COLOR: rgb(${mostCommonColor.red}, ${mostCommonColor.green}, ${mostCommonColor.blue}): $highestColorCount")
 
         val remasteredImage = if (processType == ProcessType.SHIFT) {
-            shiftRGB(image, pixelList)
+            shiftRGB(image, pixelList, shiftAmount)
         } else if (processType == ProcessType.RANDOMIZE_COLORS) {
             randomizeColors(image, pixelMap)
         } else if (processType == ProcessType.RANDOMIZE_PIXELS) {
@@ -110,11 +110,10 @@ class ImageProcessor {
         return remasteredImage
     }
 
-    private fun shiftRGB(image: BufferedImage, pixelList: ArrayList<Pixel>): BufferedImage {
+    private fun shiftRGB(image: BufferedImage, pixelList: ArrayList<Pixel>, shiftAmount: Int): BufferedImage {
         val remasteredImage = BufferedImage(image.width, image.height, BufferedImage.TYPE_INT_ARGB)
         for (i in 0 until pixelList.size) {
-            val shift = -60
-            val color = Color(shiftRGBValue(pixelList[i].rgb.red, shift), shiftRGBValue(pixelList[i].rgb.green, shift), shiftRGBValue(pixelList[i].rgb.blue, shift)).rgb
+            val color = Color(shiftRGBValue(pixelList[i].rgb.red, shiftAmount), shiftRGBValue(pixelList[i].rgb.green, shiftAmount), shiftRGBValue(pixelList[i].rgb.blue, shiftAmount)).rgb
             remasteredImage.setRGB(pixelList[i].x, pixelList[i].y, color)
         }
 
