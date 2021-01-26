@@ -25,7 +25,7 @@ After Color Randomization:<br />
 Overlay:<br />
 ![alt text](https://i.imgur.com/cQoWdjS.png)
 
-The areas that are photoshopped become more clear in the randomized color version of this image. There are larger blocks of color where the original image had duplicate RGB values. This could be because someone used a brush or pencil tool to repeatedly color the same RGB value into one sepcific area.
+The areas that are photoshopped become more clear in the randomized color version of this image. There are larger blocks of color where the original image had duplicate RGB values. This could be because someone used a brush or pencil tool to repeatedly color the same RGB value into one specific area.
 
 A photoshop detection script could be made which would perform this operation and examine the color groupings for possible photoshop edits.
 
