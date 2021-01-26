@@ -28,8 +28,7 @@ This operation will randomize all colors of an image. Any pixels that originally
 
 	RGB(x, y, z) ---> RGB(r1, r2, r3)
 
-![alt text](https://i.imgur.com/x97eryr.png | width=200) ---> ![alt text](https://i.imgur.com/1wH5Tfv.png | width=200)
-![](https://i.imgur.com/1wH5Tfv.png | width=100)
+![alt text](https://i.imgur.com/KcHeDFC.png) ---> ![alt text](https://i.imgur.com/eHaG1sn.png)
 
 ### Randomize Image Pixels
 
