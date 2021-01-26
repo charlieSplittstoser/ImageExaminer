@@ -11,7 +11,10 @@ class ImageExaminer {
 
             val ORIGINAL_IMAGE_PATH = "./images/example_photoshop.jpg"
 
-            imageProcessor.processImage(ORIGINAL_IMAGE_PATH, Operation.RANDOMIZE_COLORS, shiftAmount = 40, overwriteColor = RGB(244, 66, 66))
+            imageProcessor.processImage(ORIGINAL_IMAGE_PATH,
+                                        Operation.RANDOMIZE_COLORS,
+                                        shiftAmount = 40,
+                                        overwriteColor = RGB(244, 66, 66))
         }
     }
 
