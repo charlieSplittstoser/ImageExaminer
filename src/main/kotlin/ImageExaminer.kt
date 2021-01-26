@@ -8,9 +8,9 @@ class ImageExaminer {
         @JvmStatic fun main(args: Array<String>) {
             val imageProcessor = ImageProcessor()
 
-            val IMAGE_PATH = "./images/Night_Time.jpg"
+            val IMAGE_PATH = "./images/ps.jpg"
 
-            imageProcessor.processImage(IMAGE_PATH, ProcessType.SHIFT, shiftAmount = 40)
+            imageProcessor.processImage(IMAGE_PATH, ProcessType.RANDOMIZE_COLORS, shiftAmount = 40)
         }
     }
 

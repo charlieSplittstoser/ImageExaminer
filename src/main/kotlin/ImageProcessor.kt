@@ -11,7 +11,7 @@ import java.awt.image.BufferedImage
 
 class ImageProcessor {
 
-    fun processImage(imagePath: String, processType: ProcessType, shiftAmount: Int = 0) = try {
+    fun processImage(imagePath: String, processType: ProcessType, shiftAmount: Int = 0, overwriteColor:RGB = RGB(244,66 ,66)) = try {
         val file = File(imagePath)
         val image = ImageIO.read(file)
         val colorCountMap = HashMap<String, Int>()
@@ -19,10 +19,6 @@ class ImageProcessor {
         val pixelList = ArrayList<Pixel>()
         var highestColorCount = 0
         var mostCommonColor = RGB(0, 0, 0)
-
-        val orig_red = 0
-        val orig_green = 0
-        val orig_blue = 0
 
         println("IMAGE INFO:")
         println("Path: ${file.absolutePath}")
@@ -75,7 +71,7 @@ class ImageProcessor {
         } else if (processType == ProcessType.RANDOMIZE_PIXELS) {
             randomizePixels(image, pixelList)
         } else {
-            overwriteMostCommonColor(image, pixelList, pixelMap, mostCommonColor)
+            overwriteMostCommonColor(image, pixelList, pixelMap, mostCommonColor, overwriteColor)
         }
 
         saveRemasteredImage(remasteredImage, imagePath)
@@ -98,12 +94,15 @@ class ImageProcessor {
         return remasteredImage
     }
 
-    private fun overwriteMostCommonColor(image: BufferedImage, pixelList: ArrayList<Pixel>, pixelMap: HashMap<String, ArrayList<Pixel>>, mostCommonColor: RGB): BufferedImage {
+    private fun overwriteMostCommonColor(image: BufferedImage, pixelList: ArrayList<Pixel>,
+                                         pixelMap: HashMap<String, ArrayList<Pixel>>,
+                                         mostCommonColor: RGB,
+                                         overwriteColor: RGB): BufferedImage {
         println("Overwriting the most common color...")
         val remasteredImage = rebuildOriginalImage(image, pixelList)
         val pixelMapKey = "rgb(${mostCommonColor.red}, ${mostCommonColor.green}, ${mostCommonColor.blue})"
         for (i in 0 until pixelMap[pixelMapKey]!!.size) {
-            val color = Color(245, 66, 66).rgb
+            val color = Color(overwriteColor.red, overwriteColor.blue, overwriteColor.green).rgb
             remasteredImage.setRGB(pixelMap[pixelMapKey]!![i].x, pixelMap[pixelMapKey]!![i].y, color)
         }
 
