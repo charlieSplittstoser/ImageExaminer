@@ -44,7 +44,7 @@ Color shift of -50:<br />
 ![alt text](https://i.imgur.com/U20ZYCP.png)
 
 ### Overwrite Most Common RGB Value
-This operation will find the most frequent RGB pixel value and replace it with some user-defined value.
+This operation will find the most frequently occuring RGB pixel value and replace it with some user-defined value.
 
 Each pixel undergoes the following transformation:
 	
@@ -55,8 +55,17 @@ Before:<br />
 
 After:<br />
 ![alt text](https://i.imgur.com/F9sUnRp.png)
+
+In this case, it looks like a certain shade of white was the most common color in this photo. At first, I thought the background blue color would be the most common color. At a second glance, that blue background color has a slight gradient throughout and does not have as many common pixels as the white.
+
 ### Randomize Image Pixels
 
 This operation will assign each pixel in an image a completely random color. This essentially blurs the image and there is no way to recognize what the original image was.
 
 	RGB(x, y, z) ---> RGB(r1, r2, r3)
+
+Before:<br />
+![alt text](https://i.imgur.com/n1UqC0R.png)
+
+After:<br />
+![alt text](https://i.imgur.com/y0pv0Dg.png)
