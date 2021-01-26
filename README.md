@@ -14,13 +14,13 @@ This operation will randomize all colors of an image. Any pixels that originally
 
 This operation allows certain types of photoshop edits to be seen. For example, here is a before and after image of a photoshopped woman:
 
-Original:
+Original:<br />
 ![alt text](https://i.imgur.com/C0Doq7V.png)
 
-After Randomization:\n
+After Randomization:<br />
 ![alt text](https://i.imgur.com/pV5crAp.png)
 
-Overlay:
+Overlay:<br />
 ![alt text](https://i.imgur.com/cQoWdjS.png)
 
 The areas that are photoshopped become more clear in the randomized color version of this image. There are larger blocks of color where the original image had duplicate RGB values. This could be because someone used a brush or pencil tool to repeatedly color the same RGB value into one sepcific area.
