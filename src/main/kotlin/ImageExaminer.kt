@@ -1,6 +1,6 @@
 package main.kotlin
 
-import main.kotlin.model.ProcessType
+import main.kotlin.model.Operation
 
 class ImageExaminer {
 
@@ -8,9 +8,9 @@ class ImageExaminer {
         @JvmStatic fun main(args: Array<String>) {
             val imageProcessor = ImageProcessor()
 
-            val IMAGE_PATH = "./images/ps.jpg"
+            val ORIGINAL_IMAGE_PATH = "./images/example_photoshop.jpg"
 
-            imageProcessor.processImage(IMAGE_PATH, ProcessType.RANDOMIZE_COLORS, shiftAmount = 40)
+            imageProcessor.processImage(ORIGINAL_IMAGE_PATH, Operation.RANDOMIZE_COLORS, shiftAmount = 40)
         }
     }
 

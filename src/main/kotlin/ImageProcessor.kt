@@ -1,7 +1,7 @@
 package main.kotlin
 
 import main.kotlin.model.Pixel
-import main.kotlin.model.ProcessType
+import main.kotlin.model.Operation
 import main.kotlin.model.RGB
 import java.awt.Color
 import java.io.File
@@ -11,7 +11,7 @@ import java.awt.image.BufferedImage
 
 class ImageProcessor {
 
-    fun processImage(imagePath: String, processType: ProcessType, shiftAmount: Int = 0, overwriteColor:RGB = RGB(244,66 ,66)) = try {
+    fun processImage(imagePath: String, operation: Operation, shiftAmount: Int = 0, overwriteColor:RGB = RGB(244,66 ,66)) = try {
         val file = File(imagePath)
         val image = ImageIO.read(file)
         val colorCountMap = HashMap<String, Int>()
@@ -64,11 +64,11 @@ class ImageProcessor {
         }
         println("MOST COMMON COLOR: rgb(${mostCommonColor.red}, ${mostCommonColor.green}, ${mostCommonColor.blue}): $highestColorCount")
 
-        val remasteredImage = if (processType == ProcessType.SHIFT) {
+        val remasteredImage = if (operation == Operation.SHIFT) {
             shiftRGB(image, pixelList, shiftAmount)
-        } else if (processType == ProcessType.RANDOMIZE_COLORS) {
+        } else if (operation == Operation.RANDOMIZE_COLORS) {
             randomizeColors(image, pixelMap)
-        } else if (processType == ProcessType.RANDOMIZE_PIXELS) {
+        } else if (operation == Operation.RANDOMIZE_PIXELS) {
             randomizePixels(image, pixelList)
         } else {
             overwriteMostCommonColor(image, pixelList, pixelMap, mostCommonColor, overwriteColor)
@@ -159,7 +159,7 @@ class ImageProcessor {
     }
 
     private fun saveRemasteredImage(remasteredImage: BufferedImage, imagePath: String) {
-        val remasteredImagePath = "${imagePath.substring(0, imagePath.length - 4)}remix.png"
+        val remasteredImagePath = "${imagePath.substring(0, imagePath.length - 4)}_remix.png"
         println("Saving remastered image: $remasteredImagePath")
         val remasteredImageFile = File(remasteredImagePath)
         ImageIO.write(remasteredImage, "png", remasteredImageFile)
