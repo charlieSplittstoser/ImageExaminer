@@ -48,7 +48,7 @@ Color shift of -50:<br />
 ### Overwrite Most Common RGB Value
 This operation will find the most frequently occuring RGB pixel value and replace it with some user-defined value.
 
-Each pixel undergoes the following transformation:
+Each of the most common pixels in the image undergoes the following transformation:
 	
 	RGB(x, y, z) ---> RGB(x1, y1, z1)
 
