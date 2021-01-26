@@ -10,6 +10,8 @@ This was a project I worked on because I was curious how to manipulate the indiv
 ### Randomize Image Colors
 This operation will randomize all colors of an image. Any pixels that originally had the same RGB value will also share the same random RGB value after the operation. Depending on the image, it may be possible to faintly see the outlines of the original image.
 
+Each unique color in the original photo undergoes the following operation:
+
 	RGB(x, y, z) ---> RGB(r1, r2, r3)
 
 This operation allows certain types of photoshop edits to be seen. For example, here is a before and after image of a photoshopped woman:
