@@ -1,6 +1,7 @@
 package main.kotlin
 
 import main.kotlin.model.Operation
+import main.kotlin.model.RGB
 
 class ImageExaminer {
 
@@ -10,7 +11,7 @@ class ImageExaminer {
 
             val ORIGINAL_IMAGE_PATH = "./images/example_photoshop.jpg"
 
-            imageProcessor.processImage(ORIGINAL_IMAGE_PATH, Operation.RANDOMIZE_COLORS, shiftAmount = 40)
+            imageProcessor.processImage(ORIGINAL_IMAGE_PATH, Operation.RANDOMIZE_COLORS, shiftAmount = 40, overwriteColor = RGB(244, 66, 66))
         }
     }
 
