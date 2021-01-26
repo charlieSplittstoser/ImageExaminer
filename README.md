@@ -17,7 +17,7 @@ This operation allows certain types of photoshop edits to be seen. For example, 
 Original:<br />
 ![alt text](https://i.imgur.com/C0Doq7V.png)
 
-After Randomization:<br />
+After Color Randomization:<br />
 ![alt text](https://i.imgur.com/pV5crAp.png)
 
 Overlay:<br />
