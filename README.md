@@ -29,7 +29,7 @@ This operation will randomize all colors of an image. Any pixels that originally
 	RGB(x, y, z) ---> RGB(r1, r2, r3)
 
 Before:
-![alt text](https://i.imgur.com/KcHeDFC.png)
+![alt text](https://i.imgur.com/C0Doq7V.png)
 
 After:
 ![alt text](https://i.imgur.com/GxspuqZ.png)
