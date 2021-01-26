@@ -28,11 +28,15 @@ This operation will randomize all colors of an image. Any pixels that originally
 
 	RGB(x, y, z) ---> RGB(r1, r2, r3)
 
+This operation allows certain types of photoshop edits to be seen. For example, here is a before and after image of a photoshopped woman:
+
 Before:
 ![alt text](https://i.imgur.com/C0Doq7V.png)
 
 After:
 ![alt text](https://i.imgur.com/GxspuqZ.png)
+
+The areas that are photoshopped become more clear in the randomized color version of this image. This is because someone used a brush or pencil tool to repeatedly color the same RGB value into one sepcific area.
 
 ### Randomize Image Pixels
 
