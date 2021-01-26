@@ -34,13 +34,13 @@ Each pixel undergoes the following transformation:
 
 This shift can be used to brighten or darken an image
 
-Original:
+Original:<br />
 ![alt text](https://i.imgur.com/hyURPXT.png)
 
-Color shift of +50
+Color shift of +50:<br />
 ![alt text](https://i.imgur.com/tsnjbM5.png)
 
-Color shift of -50
+Color shift of -50:<br />
 ![alt text](https://i.imgur.com/U20ZYCP.png)
 
 ### Overwrite Most Common RGB Value
@@ -50,10 +50,10 @@ Each pixel undergoes the following transformation:
 	
 	RGB(x, y, z) ---> RGB(x1, y1, z1)
 
-Before:
+Before:<br />
 ![alt text](https://i.imgur.com/3jnGdNB.png)
 
-After:
+After:<br />
 ![alt text](https://i.imgur.com/F9sUnRp.png)
 ### Randomize Image Pixels
 
