@@ -36,7 +36,10 @@ Before:
 After:
 ![alt text](https://i.imgur.com/GxspuqZ.png)
 
-The areas that are photoshopped become more clear in the randomized color version of this image. This is because someone used a brush or pencil tool to repeatedly color the same RGB value into one sepcific area.
+Overlay:
+![alt text](https://i.imgur.com/ZZ2H9PB.png)
+
+The areas that are photoshopped become more clear in the randomized color version of this image. This could be because someone used a brush or pencil tool to repeatedly color the same RGB value into one sepcific area.
 
 ### Randomize Image Pixels
 
